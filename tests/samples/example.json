@@ -1,0 +1,12 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "config": {
+    "debug": true,
+    "count": 42,
+    "tags": ["alpha", "beta"],
+    "nested": {
+      "key": null
+    }
+  }
+}

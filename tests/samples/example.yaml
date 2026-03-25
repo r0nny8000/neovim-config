@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example-config
+  labels:
+    app: demo
+data:
+  database:
+    host: localhost
+    port: 5432
+    credentials:
+      username: admin
+      password: secret
+  features:
+    - name: auth
+      enabled: true
+    - name: cache
+      enabled: false
+  message: |
+    This is a multiline
+    string value.
