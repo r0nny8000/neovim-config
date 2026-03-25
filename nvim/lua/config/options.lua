@@ -30,6 +30,12 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Misc
+vim.opt.autoread = true
 vim.opt.undofile = true
-vim.opt.updatetime = 250
+vim.opt.updatetime = 200
 vim.opt.swapfile = false
+
+-- Auto-reload files changed externally
+vim.api.nvim_create_autocmd({ "FocusGained", "CursorHold" }, {
+    command = "checktime",
+})
