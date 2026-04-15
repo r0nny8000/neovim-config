@@ -41,9 +41,9 @@ nvim/
 | [github-nvim-theme](https://github.com/projekt0n/github-nvim-theme) | GitHub Dark / Default colorschemes |
 | [onedark.nvim](https://github.com/navarasu/onedark.nvim) | Atom One Dark colorscheme |
 | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) | Gruvbox colorscheme |
-| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting, indentation |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting, indentation (requires Neovim 0.12+) |
 
-Pre-installed parsers: bash, json, lua, markdown, python, yaml. Additional parsers auto-install when you open a file of that type.
+Pre-installed parsers: bash, json, lua, markdown, markdown_inline, python, yaml. Install additional parsers with `:TSInstall <lang>`.
 
 Switch colorscheme at runtime with `:colorscheme <name>` (e.g., `:colorscheme github_dark_default`).
 
