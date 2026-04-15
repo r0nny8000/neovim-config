@@ -26,40 +26,17 @@ require("lazy").setup({
         { "ellisonleao/gruvbox.nvim" },
         {
             "nvim-treesitter/nvim-treesitter",
-            tag = "v0.9.3",
-            build = function()
-                -- Update parsers
-                vim.cmd("TSUpdate")
-                -- Patch: remove "except*" node from Python highlights query
-                -- (incompatible with Neovim 0.11.x treesitter engine, fixed in 0.12)
-                local qpath = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/queries/python/highlights.scm"
-                local f = io.open(qpath, "r")
-                if f then
-                    local content = f:read("*a")
-                    f:close()
-                    local patched = content:gsub('%s*"except%*"\n', "\n")
-                    if patched ~= content then
-                        f = io.open(qpath, "w")
-                        if f then
-                            f:write(patched)
-                            f:close()
-                        end
-                    end
-                end
-            end,
+            lazy = false,
+            build = ":TSUpdate",
             config = function()
-                require("nvim-treesitter.configs").setup({
-                    ensure_installed = {
-                        "bash",
-                        "json",
-                        "lua",
-                        "markdown",
-                        "python",
-                        "yaml",
-                    },
-                    auto_install = true,
-                    highlight = { enable = true },
-                    indent = { enable = true },
+                require("nvim-treesitter").install({
+                    "bash", "html", "javascript", "json", "lua", "markdown", "markdown_inline", "python", "yaml",
+                })
+                vim.api.nvim_create_autocmd("FileType", {
+                    callback = function()
+                        pcall(vim.treesitter.start)
+                        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                    end,
                 })
             end,
         },
