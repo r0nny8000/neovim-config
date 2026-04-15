@@ -15,7 +15,18 @@ Upgraded from pinned `v0.9.3` tag (old `master` API) to the `main` branch rewrit
 - `lazy = false` required (plugin does not support lazy-loading)
 - `tree-sitter-cli` required (`brew install tree-sitter-cli`)
 
-Installed parsers: bash, json, lua, markdown, markdown_inline, python, yaml.
+Installed parsers: bash, html, javascript, json, lua, markdown, markdown_inline, python, yaml.
+
+### conform.nvim for auto-formatting (2026-04-15)
+
+Added `stevearc/conform.nvim` for automatic code formatting:
+- Lazy-loaded on `BufWritePre` event — only loads when a file is first saved
+- Format-on-save enabled with 500ms timeout
+- Manual format keymap: `<leader>f` (defined in the plugin's `keys` spec for lazy-loading)
+- Formatter tools installed via Homebrew: `black`, `prettier`, `shfmt`, `stylua`
+- Both `bash` and `sh` filetypes mapped to `shfmt` (Neovim uses `sh` for `.sh` files, `bash` for bash-specific files)
+- `install.sh` updated to `brew install` the formatter tools
+- Uses `lsp_format = "fallback"` (current API; old `lsp_fallback` is deprecated)
 
 ### Colorscheme: tokyonight-night (2026-03-25)
 

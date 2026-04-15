@@ -32,6 +32,7 @@ nvim/
 | `J` / `K` | v | Move lines up/down |
 | `<C-d>` / `<C-u>` | n | Scroll half-page (centered) |
 | `<leader>p` | x | Paste without overwriting register |
+| `<leader>f` | n, v | Format buffer (conform.nvim) |
 
 ## Plugins
 
@@ -42,10 +43,24 @@ nvim/
 | [onedark.nvim](https://github.com/navarasu/onedark.nvim) | Atom One Dark colorscheme |
 | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) | Gruvbox colorscheme |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting, indentation (requires Neovim 0.12+) |
+| [conform.nvim](https://github.com/stevearc/conform.nvim)             | Auto-formatting (format-on-save + `<leader>f`)            |
 
-Pre-installed parsers: bash, json, lua, markdown, markdown_inline, python, yaml. Install additional parsers with `:TSInstall <lang>`.
+Pre-installed parsers: bash, html, javascript, json, lua, markdown, markdown_inline, python, yaml. Install additional parsers with `:TSInstall <lang>`.
 
 Switch colorscheme at runtime with `:colorscheme <name>` (e.g., `:colorscheme github_dark_default`).
+
+### Formatters
+
+Installed via Homebrew by `install.sh`:
+
+| Formatter                                          | Filetypes                              |
+| -------------------------------------------------- | -------------------------------------- |
+| [black](https://github.com/psf/black)              | python                                 |
+| [prettier](https://prettier.io/)                   | html, javascript, json, markdown, yaml |
+| [shfmt](https://github.com/mvdan/sh)               | bash, sh                               |
+| [stylua](https://github.com/JohnnyMorganz/StyLua)  | lua                                    |
+
+Files are formatted automatically on save. Use `<leader>f` for manual formatting. Run `:ConformInfo` to check formatter status for the current buffer.
 
 ## Testing
 

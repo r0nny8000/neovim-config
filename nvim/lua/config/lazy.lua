@@ -40,6 +40,38 @@ require("lazy").setup({
                 })
             end,
         },
+        {
+            "stevearc/conform.nvim",
+            event = { "BufWritePre" },
+            cmd = { "ConformInfo" },
+            keys = {
+                {
+                    "<leader>f",
+                    function()
+                        require("conform").format({ async = true })
+                    end,
+                    mode = "",
+                    desc = "Format buffer",
+                },
+            },
+            opts = {
+                formatters_by_ft = {
+                    bash = { "shfmt" },
+                    html = { "prettier" },
+                    javascript = { "prettier" },
+                    json = { "prettier" },
+                    lua = { "stylua" },
+                    markdown = { "prettier" },
+                    python = { "black" },
+                    sh = { "shfmt" },
+                    yaml = { "prettier" },
+                },
+                default_format_opts = {
+                    lsp_format = "fallback",
+                },
+                format_on_save = { timeout_ms = 1000 },
+            },
+        },
     },
     checker = { enabled = false },
 })
