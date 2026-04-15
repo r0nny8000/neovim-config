@@ -48,6 +48,8 @@ test_file "$SAMPLES_DIR/example.yaml" "yaml"
 test_file "$SAMPLES_DIR/example.json" "json"
 test_file "$SAMPLES_DIR/example.lua"  "lua"
 test_file "$SAMPLES_DIR/example.sh"   "bash"
+test_file "$SAMPLES_DIR/example.html" "html"
+test_file "$SAMPLES_DIR/example.js"   "javascript"
 
 echo ""
 echo "=== Results: $PASS passed, $FAIL failed ==="

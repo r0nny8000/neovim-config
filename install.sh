@@ -11,16 +11,25 @@ if [[ -L "$TARGET" ]]; then
     current_target="$(readlink "$TARGET")"
     if [[ "$current_target" == "$SOURCE" ]]; then
         echo "Already installed: $TARGET -> $SOURCE"
-        exit 0
     else
         echo "Replacing existing symlink: $TARGET -> $current_target"
         rm "$TARGET"
+        ln -s "$SOURCE" "$TARGET"
+        echo "Installed: $TARGET -> $SOURCE"
     fi
 elif [[ -e "$TARGET" ]]; then
     backup="${TARGET}.bak.$(date +%Y%m%d_%H%M%S)"
     echo "Backing up existing config to: $backup"
     mv "$TARGET" "$backup"
+    ln -s "$SOURCE" "$TARGET"
+    echo "Installed: $TARGET -> $SOURCE"
+else
+    ln -s "$SOURCE" "$TARGET"
+    echo "Installed: $TARGET -> $SOURCE"
 fi
 
-ln -s "$SOURCE" "$TARGET"
-echo "Installed: $TARGET -> $SOURCE"
+# Install formatter tools (used by conform.nvim)
+echo ""
+echo "Installing formatter tools via Homebrew..."
+brew install black prettier shfmt stylua
+echo "Formatter tools installed."

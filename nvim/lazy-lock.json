@@ -1,6 +1,7 @@
 {
+  "conform.nvim": { "branch": "master", "commit": "086a40dc7ed8242c03be9f47fbcee68699cc2395" },
   "github-nvim-theme": { "branch": "main", "commit": "c106c9472154d6b2c74b74565616b877ae8ed31d" },
-  "gruvbox.nvim": { "branch": "main", "commit": "334d5fd49fc8033f26408425366c66c6390c57bb" },
+  "gruvbox.nvim": { "branch": "main", "commit": "3ffad346df3abb1fb5034e0620af921812aa0ce6" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
   "onedark.nvim": { "branch": "master", "commit": "df4792accde9db0043121f32628bcf8e645d9aea" },
