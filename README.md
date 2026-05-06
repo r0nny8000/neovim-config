@@ -33,6 +33,8 @@ nvim/
 | `<C-d>` / `<C-u>` | n | Scroll half-page (centered) |
 | `<leader>p` | x | Paste without overwriting register |
 | `<leader>f` | n, v | Format buffer (conform.nvim) |
+| `<leader>e` | n | Toggle file explorer (nvim-tree) |
+| `<leader>E` | n | Reveal current file in explorer |
 
 ## Plugins
 
@@ -44,6 +46,8 @@ nvim/
 | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) | Gruvbox colorscheme |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting, indentation (requires Neovim 0.12+) |
 | [conform.nvim](https://github.com/stevearc/conform.nvim)             | Auto-formatting (format-on-save + `<leader>f`)            |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)          | File explorer side panel (`<leader>e` toggle)             |
+| [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)  | File type icons (requires a Nerd Font in the terminal)    |
 
 Pre-installed parsers: bash, html, javascript, json, lua, markdown, markdown_inline, python, yaml. Install additional parsers with `:TSInstall <lang>`.
 
