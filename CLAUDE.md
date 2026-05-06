@@ -6,6 +6,17 @@ After any changes to the config, check README.md and update it if the changes af
 
 ## Decisions
 
+### nvim-tree file explorer (2026-05-05)
+
+Added `nvim-tree/nvim-tree.lua` with `nvim-web-devicons` for file type icons. netrw is disabled in `init.lua` (set `vim.g.loaded_netrw` / `vim.g.loaded_netrwPlugin` before plugin load, as recommended by the plugin).
+
+- Lazy-loaded via `keys` (`<leader>e`, `<leader>E`) and `cmd` (`NvimTree*`)
+- `<leader>e` → `:NvimTreeToggle`
+- `<leader>E` → `:NvimTreeFindFile`
+- `view.width = 32`
+- Dotfiles and git-ignored files are shown (`filters.dotfiles = false`, `filters.git_ignored = false`)
+- Requires a Nerd Font in the terminal for icons to render
+
 ### nvim-treesitter on `main` branch for Neovim 0.12+ (2026-04-14)
 
 Upgraded from pinned `v0.9.3` tag (old `master` API) to the `main` branch rewrite. The new API:

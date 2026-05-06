@@ -41,6 +41,23 @@ require("lazy").setup({
             end,
         },
         {
+            "nvim-tree/nvim-tree.lua",
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+            keys = {
+                { "<leader>e", "<cmd>NvimTreeToggle<CR>",   desc = "Toggle file explorer" },
+                { "<leader>E", "<cmd>NvimTreeFindFile<CR>", desc = "Reveal current file in explorer" },
+            },
+            cmd = { "NvimTreeToggle", "NvimTreeFindFile", "NvimTreeOpen", "NvimTreeFocus" },
+            opts = {
+                view = { width = 32 },
+                renderer = { group_empty = true },
+                filters = {
+                    dotfiles = false,
+                    git_ignored = false,
+                },
+            },
+        },
+        {
             "stevearc/conform.nvim",
             event = { "BufWritePre" },
             cmd = { "ConformInfo" },
