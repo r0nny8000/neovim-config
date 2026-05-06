@@ -78,7 +78,7 @@ require("lazy").setup({
                     javascript = { "prettier" },
                     json = { "prettier" },
                     lua = { "stylua" },
-                    markdown = { "prettier" },
+                    markdown = { "mdformat" },
                     python = { "black" },
                     sh = { "shfmt" },
                     yaml = { "prettier" },
