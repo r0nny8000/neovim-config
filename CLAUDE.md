@@ -16,6 +16,7 @@ Added `nvim-tree/nvim-tree.lua` with `nvim-web-devicons` for file type icons. ne
 - `view.width = 32`
 - Dotfiles and git-ignored files are shown (`filters.dotfiles = false`, `filters.git_ignored = false`)
 - Requires a Nerd Font in the terminal for icons to render
+- Files and folders are intermixed and sorted alphabetically by name (`sort.folders_first = false`, `sort.sorter = "name"`), instead of the default folders-first grouping (2026-06-16)
 
 ### nvim-treesitter on `main` branch for Neovim 0.12+ (2026-04-14)
 
