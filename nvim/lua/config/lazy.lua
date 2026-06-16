@@ -51,6 +51,10 @@ require("lazy").setup({
             opts = {
                 view = { width = 32 },
                 renderer = { group_empty = true },
+                sort = {
+                    sorter = "name",
+                    folders_first = false,
+                },
                 filters = {
                     dotfiles = false,
                     git_ignored = false,
