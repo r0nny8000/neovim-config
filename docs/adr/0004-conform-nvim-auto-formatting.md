@@ -13,7 +13,7 @@ Files should be formatted automatically on save, with a manual keymap as well.
 Add `stevearc/conform.nvim`:
 
 - Lazy-loaded on `BufWritePre` event — only loads when a file is first saved
-- Format-on-save enabled with 500ms timeout
+- Format-on-save enabled with 1000ms timeout
 - Manual format keymap: `<leader>f` (defined in the plugin's `keys` spec for lazy-loading)
 - Formatter tools installed via Homebrew: `black`, `prettier`, `shfmt`, `stylua`
 - Both `bash` and `sh` filetypes mapped to `shfmt` (Neovim uses `sh` for `.sh` files, `bash` for bash-specific files)

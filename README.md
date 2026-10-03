@@ -13,8 +13,14 @@ This creates a symlink `~/.config/nvim` pointing to the `nvim/` directory in thi
 ## Structure
 
 ```
+install.sh                  # Symlinks nvim/ and installs formatter tools
+docs/adr/                   # Architecture Decision Records
+tests/                      # Smoke tests and sample files
 nvim/
 ├── init.lua                # Entry point
+├── after/
+│   └── ftplugin/
+│       └── markdown.lua    # 2-space indentation for markdown
 └── lua/
     └── config/
         ├── options.lua     # Editor options (line numbers, search, indent, clipboard)
@@ -95,10 +101,12 @@ Files are formatted automatically on save. Use `<leader>f` for manual formatting
 ## Testing
 
 ```bash
+bash tests/test_formatting.sh
 bash tests/test_treesitter.sh
 ```
 
-Smoke tests that verify each sample file opens without errors and has an active treesitter parser.
+- `test_formatting.sh` — verifies each formatter tool runs and conform.nvim formats every sample file without errors
+- `test_treesitter.sh` — smoke tests that verify each sample file opens without errors and has an active treesitter parser
 
 ## Decisions
 
