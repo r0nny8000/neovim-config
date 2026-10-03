@@ -15,11 +15,15 @@ FAIL=0
 
 check_tool() {
     local tool="$1"
-    if command -v "$tool" &>/dev/null; then
+    if ! command -v "$tool" &>/dev/null; then
+        echo "FAIL  $tool not found in PATH"
+        FAIL=$((FAIL + 1))
+    # Running it catches a broken shebang, e.g. a uv tool whose Python was removed
+    elif "$tool" --version &>/dev/null; then
         echo "PASS  $tool found: $(command -v "$tool")"
         PASS=$((PASS + 1))
     else
-        echo "FAIL  $tool not found in PATH"
+        echo "FAIL  $tool found but fails to run: $(command -v "$tool")"
         FAIL=$((FAIL + 1))
     fi
 }
@@ -28,6 +32,7 @@ echo "=== Formatter Tool Checks ==="
 echo ""
 
 check_tool "black"
+check_tool "mdformat"
 check_tool "prettier"
 check_tool "shfmt"
 check_tool "stylua"

@@ -31,5 +31,8 @@ fi
 # Install formatter tools (used by conform.nvim)
 echo ""
 echo "Installing formatter tools via Homebrew..."
-brew install black prettier shfmt stylua
+brew install black prettier shfmt stylua uv
+echo "Installing mdformat via uv (uv-managed Python survives patch upgrades)..."
+uv tool install mdformat --with mdformat-gfm --with mdformat-frontmatter --with mdformat-tables \
+    --python 3.14 --managed-python --reinstall
 echo "Formatter tools installed."
