@@ -80,14 +80,15 @@ Switch colorscheme at runtime with `:colorscheme <name>` (e.g., `:colorscheme gi
 
 ### Formatters
 
-Installed via Homebrew by `install.sh`:
+Installed by `install.sh`:
 
-| Formatter                                         | Filetypes                              |
-| ------------------------------------------------- | -------------------------------------- |
-| [black](https://github.com/psf/black)             | python                                 |
-| [prettier](https://prettier.io/)                  | html, javascript, json, markdown, yaml |
-| [shfmt](https://github.com/mvdan/sh)              | bash, sh                               |
-| [stylua](https://github.com/JohnnyMorganz/StyLua) | lua                                    |
+| Formatter                                         | Filetypes                    | Installed via                    |
+| ------------------------------------------------- | ---------------------------- | -------------------------------- |
+| [black](https://github.com/psf/black)             | python                       | Homebrew                         |
+| [mdformat](https://github.com/hukkin/mdformat)    | markdown                     | `uv tool` (uv-managed Python)    |
+| [prettier](https://prettier.io/)                  | html, javascript, json, yaml | Homebrew                         |
+| [shfmt](https://github.com/mvdan/sh)              | bash, sh                     | Homebrew                         |
+| [stylua](https://github.com/JohnnyMorganz/StyLua) | lua                          | Homebrew                         |
 
 Files are formatted automatically on save. Use `<leader>f` for manual formatting. Run `:ConformInfo` to check formatter status for the current buffer.
 
@@ -98,6 +99,10 @@ bash tests/test_treesitter.sh
 ```
 
 Smoke tests that verify each sample file opens without errors and has an active treesitter parser.
+
+## Decisions
+
+The reasoning behind significant decisions is recorded as ADRs in [`docs/adr/`](docs/adr/).
 
 ## Adding Plugins
 
