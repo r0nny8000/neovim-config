@@ -16,7 +16,7 @@ Upgrade from the pinned `v0.9.3` tag to the `main` branch. The new API:
 - Highlighting enabled via `vim.treesitter.start()` in a `FileType` autocmd
 - Indentation via `vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"`
 - `lazy = false` required (plugin does not support lazy-loading)
-- `tree-sitter-cli` required (`brew install tree-sitter-cli`)
+- `tree-sitter-cli` required (installed by `install.sh`, see [ADR 7](0007-tools-from-github-releases.md))
 
 Installed parsers: bash, html, javascript, json, lua, markdown, markdown_inline, python, yaml.
 

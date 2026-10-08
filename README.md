@@ -10,10 +10,27 @@ bash install.sh
 
 This creates a symlink `~/.config/nvim` pointing to the `nvim/` directory in this repo. Existing configs are backed up with a timestamp suffix.
 
+It then installs Neovim, tree-sitter-cli and the formatters into `~/.local` with pinned versions, the same way on macOS and Linux (arm64 and x86_64, e.g. a Raspberry Pi). See [ADR 7](docs/adr/0007-tools-from-github-releases.md).
+
+Prerequisites:
+
+| Platform       | Command                                                                                      |
+| -------------- | -------------------------------------------------------------------------------------------- |
+| macOS          | `brew install node uv`                                                                       |
+| Debian / Pi OS | `sudo apt install curl tar unzip gzip gcc nodejs npm`, plus [uv](https://docs.astral.sh/uv/) |
+
+`~/.local/bin` must come first in `PATH`. When migrating a Mac from the old Homebrew setup, remove the Homebrew copies so they don't shadow the pinned versions:
+
+```bash
+brew uninstall neovim tree-sitter tree-sitter-cli stylua shfmt black prettier
+```
+
+To update a tool, bump its version at the top of `install.sh` and rerun it.
+
 ## Structure
 
 ```
-install.sh                  # Symlinks nvim/ and installs formatter tools
+install.sh                  # Symlinks nvim/ and installs Neovim, tree-sitter and formatters
 docs/adr/                   # Architecture Decision Records
 tests/                      # Smoke tests and sample files
 nvim/
@@ -90,11 +107,11 @@ Installed by `install.sh`:
 
 | Formatter                                         | Filetypes                    | Installed via                    |
 | ------------------------------------------------- | ---------------------------- | -------------------------------- |
-| [black](https://github.com/psf/black)             | python                       | Homebrew                         |
+| [black](https://github.com/psf/black)             | python                       | `uv tool` (uv-managed Python)    |
 | [mdformat](https://github.com/hukkin/mdformat)    | markdown                     | `uv tool` (uv-managed Python)    |
-| [prettier](https://prettier.io/)                  | html, javascript, json, yaml | Homebrew                         |
-| [shfmt](https://github.com/mvdan/sh)              | bash, sh                     | Homebrew                         |
-| [stylua](https://github.com/JohnnyMorganz/StyLua) | lua                          | Homebrew                         |
+| [prettier](https://prettier.io/)                  | html, javascript, json, yaml | npm (system Node)                |
+| [shfmt](https://github.com/mvdan/sh)              | bash, sh                     | GitHub release                   |
+| [stylua](https://github.com/JohnnyMorganz/StyLua) | lua                          | GitHub release                   |
 
 Files are formatted automatically on save. Use `<leader>f` for manual formatting. Run `:ConformInfo` to check formatter status for the current buffer.
 
